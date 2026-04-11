@@ -1,0 +1,774 @@
+// ============================================
+//   EY! PUBLICIDAD — style.scss
+// ============================================
+
+// ---------- Variables ----------
+$red:         #e50914;
+$red-dark:    #b20710;
+$black:       #0a0a0a;
+$black-soft:  #111;
+$gray-bg:     #f0f0f0;
+$gray-card:   #ffffff;
+$gray-text:   #444;
+
+$radius:      16px;
+$radius-sm:   8px;
+$transition:  0.3s ease;
+$shadow:      0 8px 32px rgba(0,0,0,0.10);
+$shadow-lg:   0 20px 60px rgba(0,0,0,0.18);
+
+$font-display: "Miranda", "Georgia", serif;
+$font-body:    "Arial", "Helvetica Neue", sans-serif;
+
+// ---------- Breakpoints ----------
+$bp-tablet: 900px;
+$bp-mobile: 640px;
+$bp-tiny:   380px;
+
+// ---------- Mixins ----------
+@mixin respond($bp) {
+  @media (max-width: $bp) { @content; }
+}
+
+@mixin flex-center($dir: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $dir;
+}
+
+@mixin hover-lift($y: -6px, $shadow: $shadow-lg) {
+  transition: transform $transition, box-shadow $transition;
+  &:hover {
+    transform: translateY($y);
+    box-shadow: $shadow;
+  }
+}
+
+// ---------- Fonts ----------
+@font-face {
+  font-family: "Miranda";
+  src: url("../assets/fonts/Miranda_Sans/MirandaSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Bowlby";
+  src: url("../assets/fonts/BowlbyOne-Regular.ttf") format("truetype");
+}
+
+// ---------- Animations ----------
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes intro {
+  from {transform: scale(1);}
+  to {transform: scale(0);}
+  
+}
+
+
+
+// ---------- Reset & Base ----------
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: $font-body;
+  background: #fff;
+  color: $black;
+  overflow-x: hidden;
+
+
+  #intro{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #010101;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    overflow: hidden;
+    
+    #intro-video{
+      height: 100vh;
+      
+    }
+  }
+
+  .inactive{
+    border-radius: 50%;
+    animation: intro .5s ease forwards;
+  }
+}
+
+.red { color: $red; }
+
+// ============================================
+//   HEADER / NAV
+// ============================================
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    img {
+      width: 70px;
+      object-fit: contain;
+    }
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    &:hover li:not(.boton) {
+      background: $gray-bg;
+    }
+  }
+
+  li {
+    color: $black;
+    font-family: $font-display;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    border-radius: $radius-sm;
+    transition: background $transition;
+    letter-spacing: 0.01em;
+
+    &.boton {
+      background: $red;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 800;
+      transition: background $transition, transform $transition;
+
+      &:hover {
+        background: $red-dark;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background $transition;
+
+  &:hover { background: $gray-bg; }
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: $black;
+    border-radius: 2px;
+    transition: transform $transition, opacity $transition;
+  }
+}
+
+// ============================================
+//   HERO / GIF
+// ============================================
+.gif {
+  height: 90vh;
+  background: $gray-bg;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 16px 0;
+
+  &-container {
+    position: relative;
+    width: 92%;
+    height: 100%;
+    border-radius: $radius;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0,0,0,0.65) 0%,
+      rgba(0,0,0,0.15) 60%,
+      transparent 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 48px 52px;
+  }
+
+  &-text {
+    max-width: 560px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  &-eyebrow {
+    display: inline-block;
+    background: $red;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+}
+
+.gif-text h1 {
+  font-family: $font-display;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+
+  em {
+    font-style: normal;
+    color: $red;
+  }
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: $black;
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: $radius-sm;
+  letter-spacing: 0.02em;
+  transition: background $transition, transform $transition, box-shadow $transition;
+
+  &:hover {
+    background: $red;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($red, 0.35);
+  }
+}
+
+// ============================================
+//   SECTION HEADER (shared)
+// ============================================
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    color: $black;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $red;
+  background: rgba($red, 0.08);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.subtitulo {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: $gray-text;
+}
+
+// ============================================
+//   SERVICIOS
+// ============================================
+.nosotros {
+  background: $gray-bg;
+  padding: 72px 20px;
+
+  article {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
+.nosotros-servicios {
+  background: $gray-card;
+  border-radius: $radius;
+  width: 100%;
+  max-width: 440px;
+  overflow: hidden;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  @include hover-lift();
+
+  h3 {
+    font-family: $font-display;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: $black;
+    letter-spacing: -0.01em;
+
+    &::after {
+      content: " ✦";
+      color: $red;
+      font-size: 0.8em;
+    }
+  }
+
+  p {
+    color: $gray-text;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    flex: 1;
+  }
+}
+
+.card-img {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 60%);
+  }
+
+  .nosotros-servicios:hover & img {
+    transform: scale(1.05);
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 22px 20px;
+  gap: 10px;
+}
+
+.puntos {
+  display: flex;
+  gap: 6px;
+  padding-top: 4px;
+  align-items: center;
+
+  span {
+    width: 6px;
+    height: 6px;
+    background: #ddd;
+    border-radius: 50%;
+    transition: background $transition, transform $transition;
+
+    &.active,
+    &:first-child {
+      background: $red;
+      transform: scale(1.3);
+    }
+  }
+}
+
+// ============================================
+//   MAPA / CONOCE
+// ============================================
+.conoce {
+  background: #fff;
+  padding: 80px 20px;
+
+  &-lugares {
+    max-width: 900px;
+    margin: 0 auto;
+    @include flex-center(column);
+    gap: 32px;
+
+    &-botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+  }
+}
+
+.ciudad-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 13px 26px;
+  border-radius: 40px;
+  color: $black;
+  background: $gray-bg;
+  border: 2px solid transparent;
+  letter-spacing: 0.01em;
+  transition: all $transition;
+
+  &:hover,
+  &:active {
+    background: $black;
+    color: #fff;
+    border-color: $black;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+
+  .ciudad-icon { font-size: 0.9em; }
+}
+
+#map {
+  width: 100%;
+  height: 420px;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+  border: 2px solid rgba(0,0,0,0.06);
+  background: #e8e8e8;
+}
+
+// ============================================
+//   REGISTRO
+// ============================================
+.registrate {
+  position: relative;
+  background: $black;
+  padding: 90px 20px;
+  @include flex-center();
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba($red, 0.18) 0%, transparent 70%);
+  }
+
+  &::before {
+    top: -60px;
+    right: -60px;
+    width: 320px;
+    height: 320px;
+  }
+
+  &::after {
+    bottom: -40px;
+    left: -40px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba($red, 0.12) 0%, transparent 70%);
+  }
+
+  article {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    @include flex-center(column);
+    align-items: center;
+    gap: 20px;
+  }
+
+  h2 {
+    font-family: $font-display;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+
+  &-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+  }
+}
+
+.light-tag {
+  background: rgba($red, 0.18);
+  color: lighten($red, 20%);
+}
+
+%btn-base {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  border-radius: $radius-sm;
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  letter-spacing: 0.01em;
+  transition: all $transition;
+}
+
+.btn-cliente {
+  @extend %btn-base;
+  background: #fff;
+  color: $black;
+
+  &:hover {
+    background: #e8e8e8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.15);
+  }
+}
+
+.btn-agencia {
+  @extend %btn-base;
+  background: $red;
+  color: #fff;
+
+  &:hover {
+    background: $red-dark;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($red, 0.4);
+  }
+}
+
+// ============================================
+//   FOOTER
+// ============================================
+footer {
+  background: $black-soft;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 32px 20px;
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    width: 55px;
+    object-fit: contain;
+    opacity: 0.8;
+  }
+
+  p {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.82rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+
+    a {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: color $transition;
+
+      &:hover { color: #fff; }
+    }
+  }
+}
+
+
+@include respond($bp-tablet) {
+  .nosotros article {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nosotros-servicios {
+    max-width: 560px;
+    width: 100%;
+  }
+
+  .gif-overlay { padding: 32px 28px; }
+  .gif-text h1 { font-size: 2.2rem; }
+}
+
+// Mobile
+@include respond($bp-mobile) {
+  // Nav
+  .nav-toggle { display: flex; }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 16px 20px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    gap: 4px;
+    z-index: 99;
+
+    &.open { display: flex; }
+
+    a { width: 100%; }
+
+    li {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 1rem;
+      border-radius: 8px;
+
+      &:not(.boton):hover { background: $gray-bg; }
+
+      &.boton {
+        justify-content: center;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .gif {
+    height: 70vh;
+    padding: 14px 12px 0;
+
+    &-container {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    &-overlay {
+      padding: 20px;
+      align-items: flex-end;
+    }
+
+    &-text h1 { font-size: 1.8rem; }
+    &-eyebrow { font-size: 0.68rem; }
+  }
+
+  .cta-btn {
+    font-size: 0.88rem;
+    padding: 11px 20px;
+  }
+
+  .nosotros {
+    padding: 52px 14px;
+
+    &-servicios { max-width: 100%; }
+  }
+
+  .card-img { height: 190px; }
+
+  // Mapa
+  .conoce { padding: 56px 14px; }
+  #map { height: 300px; }
+  .ciudad-btn { font-size: 0.9rem; padding: 10px 18px; }
+
+  // Registro
+  .registrate { padding: 64px 14px; }
+
+  .btn-cliente,
+  .btn-agencia {
+    width: 100%;
+    justify-content: center;
+  }
+
+  // Footer
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  // Section headers
+  .section-header { margin-bottom: 32px; }
+}
+
+// Very small screens
+@include respond($bp-tiny) {
+  .gif-text h1 { font-size: 1.5rem; }
+  .registrate h2 { font-size: 1.4rem; }
+}
