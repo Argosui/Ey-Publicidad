@@ -32,22 +32,27 @@
           <span></span>
         </button>
         <ul class="nav-menu">
-          <a href=""><li>Inicio</li></a>
-          <a href=""><li>Nosotros</li></a>
-          <a href=""><li>Conócenos</li></a>
-          <a href=""><li class="boton">Ingresar</li></a>
+          <a href="#gif"><li>Inicio</li></a>
+          <a href="#nosotros"><li>Nosotros</li></a>
+          <a href="#conoce"><li>Conócenos</li></a>
+          <a href="#registrate"><li class="boton">Ingresar</li></a>
         </ul>
       </nav>
     </header>
 
     <main>
       <!-- HERO / GIF -->
-      <section class="gif">
+      <section class="gif" id="gif">
         <div class="gif-container">
-          <img
-            src="assets/images/gif-placeholder.jpg"
-            alt="Publicidad exterior impactante"
-          />
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster="assets/images/gif-placeholder.jpg"
+            src="assets/images/eyweb.mp4"
+          ></video>
           <div class="gif-overlay">
             <div class="gif-text">
               <span class="gif-eyebrow">Publicidad que mueve masas</span>
@@ -59,17 +64,29 @@
       </section>
 
       <!-- SERVICIOS -->
-      <section class="nosotros">
+      <section class="nosotros" id="nosotros">
         <div class="section-header">
           <span class="section-tag">Lo que hacemos</span>
           <h2>Nuestros Servicios</h2>
         </div>
         <article>
+
+          
           <div class="nosotros-servicios">
             <div class="card-img">
-              <img src="assets/images/espectacular1.jpg" alt="Espectacular" />
+              <button class="btn prev">←</button>
+
+              <img
+                id="carousel-img"
+                src="assets/images/image1.png"
+                alt="Espectacular"
+              />
+
+              <button class="btn next">→</button>
+
               <div class="card-img-overlay"></div>
             </div>
+
             <div class="card-body">
               <h3>Espectaculares</h3>
               <p>
@@ -77,8 +94,12 @@
                 personas diariamente, posicionando tu marca de forma clara y
                 efectiva en los puntos más transitados.
               </p>
+
               <div class="puntos">
                 <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -109,7 +130,7 @@
         </article>
       </section>
 
-      <section class="conoce">
+      <section class="conoce" id="conoce">
         <div class="section-header light">
           <span class="section-tag">Cobertura</span>
           <h2 class="titulo">
@@ -130,12 +151,12 @@
               <span class="ciudad-icon">📍</span> Mazatlán
             </div>
 
-            <div data-lat="25.7905" data-lng="-108.9859" class="ciudad-btn">
-              <span class="ciudad-icon">📍</span> Los Mochis
-            </div>
-
             <div data-lat="24.8091" data-lng="-107.3940" class="ciudad-btn">
               <span class="ciudad-icon">📍</span> Culiacán
+            </div>
+
+            <div data-lat="25.7905" data-lng="-108.9859" class="ciudad-btn">
+              <span class="ciudad-icon">📍</span> Los Mochis
             </div>
           </div>
           <div id="map"></div>
@@ -191,5 +212,18 @@
         toggle.setAttribute("aria-expanded", open);
       });
     </script>
+
+    <a
+      href="https://wa.me/5216242353343"
+      class="whatsapp-btn"
+      aria-label="Enviar mensaje por WhatsApp"
+      target="_blank"
+    >
+      <img
+        src="assets/logo/WhatsApp_icon.png"
+        alt="whatsapp logo"
+        width="30px"
+      />
+    </a>
   </body>
 </html>

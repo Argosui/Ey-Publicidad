@@ -20,13 +20,15 @@
 }
 @keyframes intro {
   from {
-    transform: scale(1);
+    transform: translateY(0);
   }
   to {
-    transform: scale(0);
+    transform: translateY(-100%);
   }
 }
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -39,6 +41,7 @@ html {
 }
 
 body {
+  position: relative;
   font-family: "Arial", "Helvetica Neue", sans-serif;
   background: #fff;
   color: #0a0a0a;
@@ -61,8 +64,23 @@ body #intro #intro-video {
   height: 100vh;
 }
 body .inactive {
-  border-radius: 50%;
   animation: intro 0.5s ease forwards;
+}
+body .video {
+  z-index: -1;
+}
+body .whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  background: #25d366;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .red {
@@ -166,7 +184,7 @@ header nav img {
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
 }
-.gif-container img {
+.gif-container video {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -180,6 +198,7 @@ header nav img {
   display: flex;
   align-items: flex-end;
   padding: 48px 52px;
+  z-index: 10;
 }
 .gif-text {
   max-width: 560px;
@@ -286,6 +305,7 @@ header nav img {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .nosotros-servicios:hover {
@@ -328,9 +348,34 @@ header nav img {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 60%);
+  pointer-events: none;
 }
 .nosotros-servicios:hover .card-img img {
   transform: scale(1.05);
+}
+.card-img .btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  z-index: 3;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.card-img .btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.05);
+}
+.card-img .btn.prev {
+  left: 10px;
+}
+.card-img .btn.next {
+  right: 10px;
 }
 
 .card-body {
@@ -352,11 +397,15 @@ header nav img {
   height: 6px;
   background: #ddd;
   border-radius: 50%;
-  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.puntos span.active, .puntos span:first-child {
+.puntos span:hover {
+  transform: scale(1.2);
+}
+.puntos span.active {
   background: #e50914;
-  transform: scale(1.3);
+  transform: scale(1.4);
 }
 
 .conoce {
