@@ -53,7 +53,7 @@ body #intro {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #010101;
+  background-color: #e0e0e0;
   position: fixed;
   top: 0;
   right: 0;
@@ -61,7 +61,7 @@ body #intro {
   overflow: hidden;
 }
 body #intro #intro-video {
-  height: 100vh;
+  width: 100%;
 }
 body .inactive {
   animation: intro 0.5s ease forwards;
@@ -455,13 +455,53 @@ header nav img {
 }
 
 #map {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 420px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
-  border: 2px solid rgba(0, 0, 0, 0.06);
-  background: #e8e8e8;
+  overflow: visible;
+}
+#map .sinaloa-map {
+  width: 100%;
+  height: 650px;
+  background-color: red; /* 👈 aquí cambias el color */
+  -webkit-mask-image: url("../assets/images/sinaloa.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-size: 60%;
+  transform: rotate(-35deg) translate(-1%);
+  mask-image: url("../assets/images/sinaloa.png");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  mask-size: 60%;
+}
+#map .puntero {
+  position: absolute;
+  width: 50px;
+}
+#map .puntero img {
+  width: 100%;
+}
+#map .puntero {
+  transition: 0.2s;
+}
+#map .puntero:hover {
+  transform: scale(115%);
+}
+#map #mzt {
+  top: 50%;
+  right: 25%;
+}
+#map #cln {
+  top: 40%;
+}
+#map #mcs {
+  top: 25%;
+  right: 70%;
 }
 
 .registrate {
@@ -694,7 +734,26 @@ footer .footer-links a:hover {
     padding: 56px 14px;
   }
   #map {
-    height: 300px;
+    width: 350px;
+  }
+  #map img {
+    width: 300px;
+  }
+  #map .sinaloa-map {
+    overflow: visible;
+    height: 350px;
+    transform: translate(0);
+    -webkit-mask-size: 80%;
+    mask-size: 80%;
+  }
+  #map .puntero {
+    width: 25px;
+  }
+  #map #mzt {
+    top: 65%;
+  }
+  #map #cln {
+    top: 45%;
   }
   .ciudad-btn {
     font-size: 0.9rem;

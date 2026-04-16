@@ -72,12 +72,12 @@
         <article>
 
           
-          <div class="nosotros-servicios">
+          <div class="nosotros-servicios carrusel" data-type="espectaculares">
             <div class="card-img">
               <button class="btn prev">←</button>
 
               <img
-                id="carousel-img"
+                class="carousel-img"
                 src="assets/images/image1.png"
                 alt="Espectacular"
               />
@@ -107,10 +107,15 @@
             </div>
           </div>
 
-          <div class="nosotros-servicios">
+          <div class="nosotros-servicios carrusel" data-type="camiones">
             <div class="card-img">
-              <img src="assets/images/camiones1.jpg" alt="Camion con anuncio" />
+
+              <button class="btn prev">←</button>
+              <img class="carousel-img" src="assets/images/camiones1.jpg" alt="Camion con anuncio" />
+              <button class="btn next">→</button>
+
               <div class="card-img-overlay"></div>
+
             </div>
             <div class="card-body">
               <h3>Camiones</h3>
@@ -121,6 +126,9 @@
               </p>
               <div class="puntos">
                 <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -159,7 +167,21 @@
               <span class="ciudad-icon">📍</span> Los Mochis
             </div>
           </div>
-          <div id="map"></div>
+          <div id="map">
+            <div class="sinaloa-map">
+              
+            </div>
+            <div class="puntero" id="mzt">
+              <img src="assets/images/puntero.png" alt="puntero">
+            </div>
+            <div class="puntero" id="cln">
+              <img src="assets/images/puntero.png" alt="puntero">
+            </div>
+
+            <div class="puntero" id="mcs">
+              <img src="assets/images/puntero.png" alt="puntero">
+            </div>
+          </div>
         </article>
       </section>
 
@@ -174,8 +196,9 @@
             real.
           </p>
           <div class="registrate-btns">
-            <button class="btn-cliente">Soy Cliente</button>
-            <button class="btn-agencia">Soy Agencia</button>
+            <a href="register/index.html"><button class="btn-cliente">Registrarse</button></a>
+            <a href="login/index.html"><button class="btn-agencia">Iniciar Sesion</button></a>
+            
           </div>
         </article>
       </section>

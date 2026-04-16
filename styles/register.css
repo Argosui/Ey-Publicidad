@@ -1,0 +1,377 @@
+@font-face {
+  font-family: "Miranda";
+  src: url("../assets/fonts/Miranda_Sans/MirandaSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+}
+
+.register-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.register-brand {
+  position: relative;
+  flex: 0 0 38%;
+  background: #0a0a0a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(circle at 30% 40%, rgba(229, 9, 20, 0.2) 0%, transparent 60%), radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 28px 28px;
+}
+@media (max-width: 900px) {
+  .register-brand {
+    display: none;
+  }
+}
+
+.brand-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(229, 9, 20, 0.06) 0%, transparent 50%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+}
+
+.brand-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 0 48px;
+  animation: slideIn 0.7s ease both;
+}
+
+.brand-logo {
+  width: 85px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.brand-tagline {
+  font-family: "Miranda", "Georgia", serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.brand-tagline em {
+  font-style: normal;
+  color: #e50914;
+}
+
+.brand-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.brand-perks li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.perk-dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e50914;
+  box-shadow: 0 0 8px rgba(229, 9, 20, 0.6);
+}
+
+.brand-dots {
+  display: flex;
+  gap: 8px;
+}
+.brand-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+.brand-dots span:first-child {
+  background: #e50914;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.register-container {
+  flex: 1;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow-y: auto;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 44px 40px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.1s;
+}
+@media (max-width: 640px) {
+  .register-card {
+    padding: 32px 20px;
+  }
+}
+
+.register-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e50914;
+  background: rgba(229, 9, 20, 0.08);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.register-card h2 {
+  font-family: "Miranda", "Georgia", serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0a0a0a;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.register-sub {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 28px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 640px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.input-group label {
+  font-family: "Miranda", "Georgia", serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0a0a0a;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+.input-group.focused label {
+  color: #e50914;
+}
+.input-group.error .input-wrap input {
+  border-color: #e50914;
+  background: rgba(229, 9, 20, 0.03);
+  animation: shake 0.3s ease;
+}
+.input-group.error label {
+  color: #e50914;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-wrap .input-icon {
+  position: absolute;
+  left: 13px;
+  font-size: 0.82rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: color 0.3s ease;
+  font-style: normal;
+}
+.input-wrap input {
+  width: 100%;
+  padding: 12px 16px 12px 36px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+  color: #0a0a0a;
+  background: #f0f0f0;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.input-wrap input[type=number] {
+  -moz-appearance: textfield;
+}
+.input-wrap input[type=number]::-webkit-outer-spin-button, .input-wrap input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.input-wrap input::-moz-placeholder {
+  color: #bbb;
+}
+.input-wrap input::placeholder {
+  color: #bbb;
+}
+.input-wrap input:focus {
+  border-color: #e50914;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+}
+.input-wrap .toggle-pass {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: #aaa;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.3s ease;
+}
+.input-wrap .toggle-pass:hover {
+  color: #0a0a0a;
+}
+
+.input-group.focused .input-icon {
+  color: #e50914;
+}
+
+.password-strength {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: -4px;
+}
+.password-strength.visible {
+  display: flex;
+}
+
+.strength-track {
+  height: 4px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.strength-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: "Miranda", "Georgia", serif;
+  letter-spacing: 0.04em;
+  transition: color 0.4s ease;
+}
+
+.btn-submit {
+  margin-top: 6px;
+  width: 100%;
+  padding: 14px;
+  background: #0a0a0a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Miranda", "Georgia", serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-submit:hover {
+  background: #e50914;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.35);
+}
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.extra {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: #555;
+}
+.extra a {
+  color: #e50914;
+  font-weight: 800;
+  font-family: "Miranda", "Georgia", serif;
+  transition: color 0.3s ease;
+}
+.extra a:hover {
+  color: #b20710;
+}/*# sourceMappingURL=register.css.map */

@@ -1,0 +1,286 @@
+@font-face {
+  font-family: "Miranda";
+  src: url("../assets/fonts/Miranda_Sans/MirandaSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+}
+
+.login-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.login-brand {
+  position: relative;
+  flex: 0 0 42%;
+  background: #0a0a0a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(circle, rgba(229, 9, 20, 0.18) 0%, transparent 65%), radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 28px 28px;
+  background-position: 30% 40%, 0 0;
+}
+@media (max-width: 700px) {
+  .login-brand {
+    display: none;
+  }
+}
+
+.brand-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(229, 9, 20, 0.08) 0%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+}
+
+.brand-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 0 52px;
+  animation: slideIn 0.7s ease both;
+}
+
+.brand-logo {
+  width: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.brand-tagline {
+  font-family: "Miranda", "Georgia", serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.brand-tagline em {
+  font-style: normal;
+  color: #e50914;
+}
+
+.brand-dots {
+  display: flex;
+  gap: 8px;
+}
+.brand-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+.brand-dots span:first-child {
+  background: #e50914;
+  width: 24px;
+  border-radius: 4px;
+}
+
+.login-container {
+  flex: 1;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 44px 40px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.1s;
+}
+@media (max-width: 700px) {
+  .login-card {
+    padding: 36px 24px;
+    max-width: 100%;
+  }
+}
+
+.login-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e50914;
+  background: rgba(229, 9, 20, 0.08);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.login-card h2 {
+  font-family: "Miranda", "Georgia", serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0a0a0a;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.login-sub {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.input-group label {
+  font-family: "Miranda", "Georgia", serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0a0a0a;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+.input-group.focused label {
+  color: #e50914;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-wrap .input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 0.85rem;
+  color: #aaa;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+.input-wrap input {
+  width: 100%;
+  padding: 13px 16px 13px 38px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+  color: #0a0a0a;
+  background: #f0f0f0;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.input-wrap input::-moz-placeholder {
+  color: #bbb;
+}
+.input-wrap input::placeholder {
+  color: #bbb;
+}
+.input-wrap input:focus {
+  border-color: #e50914;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+}
+.input-wrap .toggle-pass {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #aaa;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.3s ease;
+}
+.input-wrap .toggle-pass:hover {
+  color: #0a0a0a;
+}
+
+.input-group.focused .input-icon {
+  color: #e50914;
+}
+
+.btn-submit {
+  margin-top: 8px;
+  width: 100%;
+  padding: 14px;
+  background: #0a0a0a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Miranda", "Georgia", serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-submit:hover {
+  background: #e50914;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.35);
+}
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.extra {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: #555;
+}
+.extra a {
+  color: #e50914;
+  font-weight: 800;
+  font-family: "Miranda", "Georgia", serif;
+  transition: color 0.3s ease;
+}
+.extra a:hover {
+  color: #b20710;
+}/*# sourceMappingURL=login.css.map */

@@ -111,7 +111,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #010101;
+    background-color: #e0e0e0;
     position: fixed;
     top: 0;
     right: 0;
@@ -119,7 +119,7 @@ body {
     overflow: hidden;
 
     #intro-video {
-      height: 100vh;
+      width: 100%;
     }
   }
 
@@ -127,7 +127,7 @@ body {
     animation: intro 0.5s ease forwards;
   }
 
-  .video{
+  .video {
     z-index: -1;
   }
 
@@ -450,11 +450,7 @@ header {
   &-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.35),
-      transparent 60%
-    );
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 60%);
     pointer-events: none;
   }
 
@@ -463,7 +459,6 @@ header {
     transform: scale(1.05);
   }
 
-  
   .btn {
     position: absolute;
     top: 50%;
@@ -476,7 +471,9 @@ header {
     cursor: pointer;
     border-radius: 6px;
     z-index: 3;
-    transition: background $transition, transform $transition;
+    transition:
+      background $transition,
+      transform $transition;
 
     &:hover {
       background: rgba(0, 0, 0, 0.7);
@@ -578,13 +575,66 @@ header {
 }
 
 #map {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 420px;
-  border-radius: $radius;
-  overflow: hidden;
-  box-shadow: $shadow-lg;
-  border: 2px solid rgba(0, 0, 0, 0.06);
-  background: #e8e8e8;
+  
+  overflow: visible;
+
+
+
+  .sinaloa-map {
+    width: 100%;
+    height: 650px;
+    background-color: red; /* 👈 aquí cambias el color */
+
+    -webkit-mask-image: url("../assets/images/sinaloa.png");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 60%;
+    transform: rotate(-35deg) translate(-1%);
+
+    mask-image: url("../assets/images/sinaloa.png");
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+    mask-size: 60%;
+
+    
+  }
+
+  .puntero{
+    position: absolute;
+    width: 50px;
+    
+    img{
+      width: 100%;
+    }
+
+    transition: .2s;
+    &:hover{
+      transform: scale(115%);
+
+    }
+  }
+
+  #mzt{
+    top: 50%;
+    right: 25%;
+  }
+
+  #cln{
+    top: 40%;
+    
+  }
+  #mcs{
+    top: 25%;
+    right: 70%;
+  }
 }
 
 // ============================================
@@ -854,8 +904,34 @@ footer {
   .conoce {
     padding: 56px 14px;
   }
+
   #map {
-    height: 300px;
+    width: 350px;
+    img {
+      width: 300px;
+    }
+
+    .sinaloa-map{
+      overflow: visible;
+      height: 350px;
+      transform: translate(0);
+      -webkit-mask-size: 80%;
+
+      mask-size: 80%;
+
+    }
+
+    .puntero{
+      width: 25px;
+    }
+
+    #mzt{
+      top: 65%;
+    }
+
+    #cln{
+      top: 45%;
+    }
   }
   .ciudad-btn {
     font-size: 0.9rem;

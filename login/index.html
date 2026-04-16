@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login — Ey! Publicidad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/login.css">
+</head>
+
+<body>
+
+  <div class="login-page">
+
+    <!-- Panel izquierdo / decorativo -->
+    <div class="login-brand">
+      <div class="brand-inner">
+        <img src="../assets/logo/ey-black-removebg-preview.png" alt="Ey! Publicidad" class="brand-logo" />
+        <p class="brand-tagline">Tu marca,<br><em>en todas partes.</em></p>
+        <div class="brand-dots">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="brand-overlay"></div>
+    </div>
+
+    <!-- Panel derecho / formulario -->
+    <div class="login-container">
+
+      <div class="login-card">
+        <span class="login-tag">Acceso al portal</span>
+        <h2>Iniciar sesión</h2>
+        <p class="login-sub">Ingresa tus datos para continuar</p>
+
+        <form id="loginForm">
+
+          <div class="input-group">
+            <label for="email">Correo electrónico</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input type="email" id="email" placeholder="tucorreo@ejemplo.com" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Contraseña</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input type="password" id="password" placeholder="••••••••" required>
+              <button type="button" class="toggle-pass" aria-label="Mostrar contraseña">👁</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">Entrar</button>
+
+        </form>
+
+        <div class="extra">
+          ¿No tienes cuenta? <a href="../register/index.html">Crear cuenta</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+
+    document.querySelector('.toggle-pass').addEventListener('click', function () {
+      const input = document.getElementById('password');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    });
+
+  
+    document.querySelectorAll('.input-wrap input').forEach(input => {
+      input.addEventListener('focus', () => input.closest('.input-group').classList.add('focused'));
+      input.addEventListener('blur',  () => input.closest('.input-group').classList.remove('focused'));
+    });
+  </script>
+
+</body>
+</html>
