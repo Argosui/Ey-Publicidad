@@ -496,7 +496,7 @@ header nav img {
   -webkit-mask-size: contain;
   -webkit-mask-position: center;
   -webkit-mask-size: 45%;
-  transform: rotate(75deg) translate(-1%);
+  transform: rotate(85deg) translate(-1%) scaleY(-1);
   mask-image: url("../assets/images/sinaloa.png");
   mask-repeat: no-repeat;
   mask-size: contain;
@@ -517,14 +517,14 @@ header nav img {
   transform: scale(115%);
 }
 #map #mzt {
-  top: 5%;
-  right: 35%;
+  bottom: 20%;
+  right: 30%;
 }
 #map #cln {
   top: 40%;
 }
 #map #mcs {
-  bottom: 0;
+  top: 20%;
   right: 62%;
 }
 

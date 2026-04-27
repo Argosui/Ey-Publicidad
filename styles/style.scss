@@ -586,6 +586,7 @@ header {
   letter-spacing: 0.01em;
   transition: all $transition;
   z-index: 20;
+  
 
   &:hover,
   &:active {
@@ -607,6 +608,7 @@ header {
   justify-content: center;
   width: 100%;
   height: 420px;
+ 
 
   overflow: visible;
 
@@ -615,13 +617,14 @@ header {
     width: 100%;
     height: 650px;
     background-color: red; /* 👈 aquí cambias el color */
+     
 
     -webkit-mask-image: url("../assets/images/sinaloa.png");
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: contain;
     -webkit-mask-position: center;
     -webkit-mask-size: 45%;
-    transform: rotate(75deg) translate(-1%);
+    transform: rotate(85deg) translate(-1%) scaleY(-1);
 
     mask-image: url("../assets/images/sinaloa.png");
     mask-repeat: no-repeat;
@@ -645,15 +648,15 @@ header {
   }
 
   #mzt {
-    top: 5%;
-    right: 35%;
+    bottom: 20%;
+    right: 30%;
   }
 
   #cln {
     top: 40%;
   }
   #mcs {
-    bottom: 0;
+    top: 20%;
     right: 62%;
   }
 }
