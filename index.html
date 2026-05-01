@@ -3,14 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <link rel="icon" type="image/png" href="./assets/logo/ey-white.png" />
-    <title>Ey! Publicidad</title>
-  </head>
-  <body>
-    <!-- HEADER -->
 
-    <div id="intro">
+    <!-- ═══════════════════════════════════════════════
+         SEO BÁSICO
+    ═══════════════════════════════════════════════ -->
+    <title>Ey! Publicidad – Espectaculares y Publicidad Exterior en Sinaloa</title>
+    <meta name="description" content="Agencia de publicidad exterior en Sinaloa. Espectaculares, publicidad en camiones y más en Mazatlán, Culiacán y Los Mochis. Lleva tu marca a miles de personas." />
+    <meta name="keywords" content="publicidad exterior Sinaloa, espectaculares Mazatlán, publicidad en camiones, anuncios exteriores Culiacán, agencia publicidad Sinaloa, Ey publicidad" />
+    <meta name="author" content="Ey! Publicidad" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://eypublicidad.com/" />
+
+    <!-- ═══════════════════════════════════════════════
+         OPEN GRAPH (Facebook, WhatsApp, LinkedIn)
+    ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ey! Publicidad" />
+    <meta property="og:title" content="Ey! Publicidad – Espectaculares y Publicidad Exterior en Sinaloa" />
+    <meta property="og:description" content="Agencia de publicidad exterior en Sinaloa. Espectaculares y camiones en Mazatlán, Culiacán y Los Mochis. Alta visibilidad para tu marca." />
+    <meta property="og:image" content="https://eypublicidad.com/assets/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ey! Publicidad – Publicidad exterior en Sinaloa" />
+    <meta property="og:url" content="https://eypublicidad.com/" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- ═══════════════════════════════════════════════
+         TWITTER CARD
+    ═══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ey! Publicidad – Publicidad Exterior en Sinaloa" />
+    <meta name="twitter:description" content="Espectaculares y publicidad en camiones en Mazatlán, Culiacán y Los Mochis. Tu marca en todas partes." />
+    <meta name="twitter:image" content="https://eypublicidad.com/assets/images/og-image.jpg" />
+
+    <!-- ═══════════════════════════════════════════════
+         SCHEMA.ORG – Datos Estructurados (JSON-LD)
+    ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Ey! Publicidad",
+      "description": "Agencia de publicidad exterior en Sinaloa. Espectaculares, publicidad en camiones y más en Mazatlán, Culiacán y Los Mochis.",
+      "url": "https://eypublicidad.com/",
+      "logo": "https://eypublicidad.com/assets/logo/ey-white.png",
+      "image": "https://eypublicidad.com/assets/images/og-image.jpg",
+      "telephone": "+52-624-235-3343",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-624-235-3343",
+        "contactType": "customer service",
+        "availableLanguage": "Spanish"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mazatlán",
+        "addressRegion": "Sinaloa",
+        "addressCountry": "MX"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Mazatlán" },
+        { "@type": "City", "name": "Culiacán" },
+        { "@type": "City", "name": "Los Mochis" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Publicidad Exterior",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Espectaculares",
+              "description": "Alta visibilidad en zonas estratégicas. Impactamos a miles de personas diariamente en los puntos más transitados de Sinaloa."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Publicidad en Camiones",
+              "description": "Tu marca recorre toda la ciudad. Impacto constante llegando a miles de personas de forma dinámica."
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://wa.me/5216242353343"
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════
+         FAVICONS
+    ═══════════════════════════════════════════════ -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/ey-white.png" />
+    <link rel="apple-touch-icon" href="./assets/logo/ey-white.png" />
+
+    <!-- ═══════════════════════════════════════════════
+         PERFORMANCE: Preconnect a dominios externos
+    ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />
+
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+
+  <body>
+    <!-- INTRO -->
+    <div id="intro" aria-hidden="true">
       <video
         src="assets/intro/intro.mp4"
         id="intro-video"
@@ -20,21 +121,30 @@
       ></video>
     </div>
 
-    
-
+    <!-- HEADER -->
     <header>
-      <nav>
-        <img src="assets/logo/ey-white-removebg-preview.png" alt="logo" />
+      <nav role="navigation" aria-label="Navegación principal">
+        <a href="/" aria-label="Ey! Publicidad – Inicio">
+          <img
+            src="assets/logo/ey-white-removebg-preview.png"
+            alt="Ey! Publicidad – Logo"
+            width="70"
+            height="48"
+            loading="eager"
+          />
+        </a>
         <button
           class="nav-toggle"
-          aria-label="Abrir menú"
+          aria-label="Abrir menú de navegación"
           aria-expanded="false"
+          aria-controls="nav-menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <ul class="nav-menu">
+        <!-- Estructura ul > a > li idéntica al original para que el CSS no se rompa -->
+        <ul class="nav-menu" id="nav-menu">
           <a href="#gif"><li>Inicio</li></a>
           <a href="#nosotros"><li>Nosotros</li></a>
           <a href="#conoce"><li>Conócenos</li></a>
@@ -43,9 +153,10 @@
       </nav>
     </header>
 
-    <main>
-      <!-- HERO / GIF -->
-      <section class="gif" id="gif">
+    <main id="main-content">
+
+      <!-- HERO -->
+      <section class="gif" id="gif" aria-label="Hero – Publicidad exterior en Sinaloa">
         <div class="gif-container">
           <video
             autoplay
@@ -55,6 +166,7 @@
             preload="auto"
             poster="assets/images/gif-placeholder.jpg"
             src="assets/images/eyweb.mp4"
+            aria-hidden="true"
           ></video>
           <div class="gif-overlay">
             <div class="gif-text">
@@ -67,36 +179,41 @@
       </section>
 
       <!-- SERVICIOS -->
-      <section class="nosotros" id="nosotros">
+      <section class="nosotros" id="nosotros" aria-label="Servicios de publicidad exterior en Sinaloa">
         <div class="section-header">
           <span class="section-tag">Lo que hacemos</span>
-          <h2>Nuestros Servicios</h2>
+          <h2>Nuestros Servicios de Publicidad Exterior</h2>
         </div>
         <article>
-          <div class="nosotros-servicios carrusel" data-type="espectaculares">
-            <div class="card-img">
-              <button class="btn prev">←</button>
 
+          <!-- Espectaculares — div.carrusel idéntico al original -->
+          <div
+            class="nosotros-servicios carrusel"
+            data-type="espectaculares"
+            role="region"
+            aria-label="Espectaculares"
+          >
+            <div class="card-img">
+              <button class="btn prev" aria-label="Imagen anterior">←</button>
               <img
                 class="carousel-img"
                 src="assets/images/image1.png"
-                alt="Espectacular"
+                alt="Espectacular de Ey! Publicidad en zona de alto tráfico en Sinaloa"
+                width="600"
+                height="230"
+                loading="lazy"
               />
-
-              <button class="btn next">→</button>
-
-              <div class="card-img-overlay"></div>
+              <button class="btn next" aria-label="Siguiente imagen">→</button>
+              <div class="card-img-overlay" aria-hidden="true"></div>
             </div>
-
             <div class="card-body">
               <h3>Espectaculares</h3>
               <p>
                 Alta visibilidad en zonas estratégicas. Impactamos a miles de
                 personas diariamente, posicionando tu marca de forma clara y
-                efectiva en los puntos más transitados.
+                efectiva en los puntos más transitados de Mazatlán, Culiacán y Los Mochis.
               </p>
-
-              <div class="puntos">
+              <div class="puntos" aria-hidden="true">
                 <span class="active"></span>
                 <span></span>
                 <span></span>
@@ -108,26 +225,34 @@
             </div>
           </div>
 
-          <div class="nosotros-servicios carrusel" data-type="camiones">
+          <!-- Camiones — div.carrusel idéntico al original -->
+          <div
+            class="nosotros-servicios carrusel"
+            data-type="camiones"
+            role="region"
+            aria-label="Publicidad en camiones"
+          >
             <div class="card-img">
-              <button class="btn prev">←</button>
+              <button class="btn prev" aria-label="Imagen anterior">←</button>
               <img
                 class="carousel-img"
                 src="assets/images/camiones1.jpg"
-                alt="Camion con anuncio"
+                alt="Camión de transporte público con publicidad de Ey! en Sinaloa"
+                width="600"
+                height="230"
+                loading="lazy"
               />
-              <button class="btn next">→</button>
-
-              <div class="card-img-overlay"></div>
+              <button class="btn next" aria-label="Siguiente imagen">→</button>
+              <div class="card-img-overlay" aria-hidden="true"></div>
             </div>
             <div class="card-body">
-              <h3>Camiones</h3>
+              <h3>Publicidad en Camiones</h3>
               <p>
                 Tu marca recorre toda la ciudad. Generamos impacto constante
                 llegando a miles de personas de forma dinámica, donde quiera que
                 vayan.
               </p>
-              <div class="puntos">
+              <div class="puntos" aria-hidden="true">
                 <span class="active"></span>
                 <span></span>
                 <span></span>
@@ -138,91 +263,136 @@
               </div>
             </div>
           </div>
+
         </article>
       </section>
 
-      <section class="conoce" id="conoce">
+      <!-- COBERTURA -->
+      <section class="conoce" id="conoce" aria-label="Cobertura en Sinaloa">
         <div class="section-header light">
           <span class="section-tag">Cobertura</span>
           <h2 class="titulo">
-            Lleva tu marca a <span class="red">miles de personas</span>
+            Lleva tu marca a <span class="red">miles de personas</span> en Sinaloa
           </h2>
           <p class="subtitulo">
-            Presencia en las principales ciudades de Sinaloa
+            Presencia en las principales ciudades de Sinaloa: Mazatlán, Culiacán y Los Mochis.
           </p>
         </div>
 
         <article class="conoce-lugares">
+          <!-- div.ciudad-btn exactamente como el original (el JS los selecciona por clase) -->
+          <!-- Se añade role="button" + tabindex para accesibilidad sin cambiar el tag -->
           <div class="conoce-lugares-botones" id="lugares">
             <div
               data-lat="23.2494"
               data-lng="-106.4111"
               class="ciudad-btn active"
+              role="button"
+              tabindex="0"
+              aria-pressed="true"
             >
-              <span class="ciudad-icon">📍</span> Mazatlán
+              <span class="ciudad-icon" aria-hidden="true">📍</span> Mazatlán
             </div>
-
-            <div data-lat="24.8091" data-lng="-107.3940" class="ciudad-btn">
-              <span class="ciudad-icon">📍</span> Culiacán
+            <div
+              data-lat="24.8091"
+              data-lng="-107.3940"
+              class="ciudad-btn"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            >
+              <span class="ciudad-icon" aria-hidden="true">📍</span> Culiacán
             </div>
-
-            <div data-lat="25.7905" data-lng="-108.9859" class="ciudad-btn">
-              <span class="ciudad-icon">📍</span> Los Mochis
+            <div
+              data-lat="25.7905"
+              data-lng="-108.9859"
+              class="ciudad-btn"
+              role="button"
+              tabindex="0"
+              aria-pressed="false"
+            >
+              <span class="ciudad-icon" aria-hidden="true">📍</span> Los Mochis
             </div>
           </div>
-          <div id="map">
+
+          <div id="map" aria-label="Mapa de cobertura en Sinaloa" role="img">
             <div class="sinaloa-map"></div>
             <div class="puntero" id="mzt">
-              <img src="assets/images/puntero.png" alt="puntero" />
+              <img src="assets/images/puntero.png" alt="Mazatlán" width="50" height="60" loading="lazy" />
             </div>
             <div class="puntero" id="cln">
-              <img src="assets/images/puntero.png" alt="puntero" />
+              <img src="assets/images/puntero.png" alt="Culiacán" width="50" height="60" loading="lazy" />
             </div>
-
             <div class="puntero" id="mcs">
-              <img src="assets/images/puntero.png" alt="puntero" />
+              <img src="assets/images/puntero.png" alt="Los Mochis" width="50" height="60" loading="lazy" />
             </div>
           </div>
         </article>
       </section>
 
-      <!-- REGISTRO -->
-      <section class="registrate" id="registrate">
-        <div class="registrate-bg"></div>
+      <!-- REGISTRO / CTA -->
+      <section class="registrate" id="registrate" aria-label="Regístrate para acceder al catálogo">
+        <div class="registrate-bg" aria-hidden="true"></div>
         <article>
           <span class="section-tag light-tag">Únete</span>
-          <h2>Registrate para conocer<br />nuestro catálogo</h2>
+          <h2>Regístrate para conocer<br />nuestro catálogo de publicidad</h2>
           <p>
             Accede a inventario exclusivo, tarifas y disponibilidad en tiempo
-            real.
+            real de espectaculares y camiones en Sinaloa.
           </p>
           <div class="registrate-btns">
-            <a href="https://sistema.eypublicidad.com/"
-              ><button class="btn-cliente">Registrarse</button></a
+            <a
+              href="https://sistema.eypublicidad.com/"
+              aria-label="Crear cuenta en Ey! Publicidad"
             >
-            <a href="https://sistema.eypublicidad.com/"
-              ><button class="btn-agencia">Iniciar Sesion</button></a
+              <button class="btn-cliente">Registrarse</button>
+            </a>
+            <a
+              href="https://sistema.eypublicidad.com/"
+              aria-label="Iniciar sesión en Ey! Publicidad"
             >
+              <button class="btn-agencia">Iniciar Sesión</button>
+            </a>
           </div>
         </article>
       </section>
 
-      <footer>
-        <div class="footer-inner">
+    </main>
+
+    <!-- FOOTER — estructura original conservada; se añaden datos de contacto para SEO local -->
+    <footer role="contentinfo">
+      <div class="footer-inner">
+        <a href="/" aria-label="Ey! Publicidad – Inicio">
           <img
             src="assets/logo/Ey-black-removebg-preview.png"
             alt="Ey! Publicidad"
             class="footer-logo"
+            width="55"
+            height="40"
+            loading="lazy"
           />
+        </a>
+        <div>
           <p>© 2025 Ey! Publicidad. Todos los derechos reservados.</p>
-          <div class="footer-links">
-            <a href="">Aviso de Privacidad</a>
-            <a href="">Contacto</a>
-          </div>
+          <address style="font-style: normal;">
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.82rem;">
+              Mazatlán, Sinaloa, México &nbsp;·&nbsp;
+              <a
+                href="https://wa.me/5216242353343"
+                style="color: rgba(255,255,255,0.45); font-size: 0.82rem;"
+                aria-label="Contactar por WhatsApp"
+              >+52 624 235 3343</a>
+            </p>
+          </address>
         </div>
-      </footer>
-    </main>
+        <div class="footer-links">
+          <a href="/aviso-de-privacidad">Aviso de Privacidad</a>
+          <a href="/contacto">Contacto</a>
+        </div>
+      </div>
+    </footer>
 
+    <!-- Scripts -->
     <script src="script.js" defer></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDwqgrm6u3o6X7j7enlD0CpuiG8VzQakI&callback=initMap"
@@ -240,17 +410,22 @@
       });
     </script>
 
+    <!-- WhatsApp flotante -->
     <a
       href="https://wa.me/5216242353343"
       class="whatsapp-btn"
-      aria-label="Enviar mensaje por WhatsApp"
+      aria-label="Contactar a Ey! Publicidad por WhatsApp"
       target="_blank"
+      rel="noopener noreferrer"
     >
       <img
         src="assets/logo/WhatsApp_icon.png"
-        alt="whatsapp logo"
-        width="30px"
+        alt="WhatsApp"
+        width="30"
+        height="30"
+        loading="lazy"
       />
     </a>
+
   </body>
 </html>
