@@ -232,6 +232,14 @@
       <img src="assets/img/espectacular-6.webp" alt="Espectacular vista panorámica" class="slide" loading="lazy" width="800" height="480">
       <img src="assets/img/espectacular-7.webp" alt="Espectacular zona urbana" class="slide" loading="lazy" width="800" height="480">
       <div class="label" aria-hidden="true">Servicio<span class="accent">/01</span></div>
+      <div class="slideshow-nav" aria-label="Controles del carrusel">
+        <button class="slideshow-btn slideshow-prev" aria-label="Imagen anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="slideshow-btn slideshow-next" aria-label="Imagen siguiente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
       <div class="slideshow-dots" aria-hidden="true">
         <span class="dot active"></span>
         <span class="dot"></span>
@@ -275,6 +283,14 @@
       <img src="assets/img/camion-6.webp" alt="Banda MS — campaña tour" class="slide" loading="lazy" width="800" height="480">
       <img src="assets/img/camion-7.webp" alt="Munba — campaña lateral total" class="slide" loading="lazy" width="800" height="480">
       <div class="label" aria-hidden="true">Servicio<span class="accent">/02</span></div>
+      <div class="slideshow-nav" aria-label="Controles del carrusel">
+        <button class="slideshow-btn slideshow-prev" aria-label="Imagen anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="slideshow-btn slideshow-next" aria-label="Imagen siguiente">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
       <div class="slideshow-dots" aria-hidden="true">
         <span class="dot active"></span>
         <span class="dot"></span>
@@ -677,6 +693,12 @@ function initSlideshow(slideshow) {
     if (timer) clearInterval(timer);
     timer = null;
   }
+
+  const btnPrev = slideshow.querySelector('.slideshow-prev');
+  const btnNext = slideshow.querySelector('.slideshow-next');
+
+  if (btnPrev) btnPrev.addEventListener('click', () => { show(idx - 1); start(); });
+  if (btnNext) btnNext.addEventListener('click', () => { show(idx + 1); start(); });
 
   slideshow.addEventListener('mouseenter', () => { paused = true; });
   slideshow.addEventListener('mouseleave', () => { paused = false; });

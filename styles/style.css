@@ -591,6 +591,39 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .service-slideshow .slide.active { opacity: 1; }
 .service-slideshow { position: relative; }
 
+.slideshow-nav {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 3;
+}
+
+.slideshow-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(10,10,10,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.2s var(--ease);
+}
+
+.slideshow-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  transform: scale(1.1);
+}
+
+.slideshow-btn:active { transform: scale(0.95); }
+
 .slideshow-dots {
   position: absolute;
   bottom: 1.25rem;
