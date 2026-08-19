@@ -66,13 +66,28 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   mix-blend-mode: difference;
 }
 
+/* La capa de desenfoque vive en un pseudo-elemento y NO en .nav.
+   backdrop-filter sobre .nav lo convierte en bloque contenedor de sus
+   descendientes position:fixed, lo que encerraba el menu movil (.nav-links,
+   inset:0) dentro de la barra de ~88px en vez de cubrir el viewport. */
+.nav::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .nav.scrolled {
   background: rgba(10, 10, 10, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   padding: 0.85rem var(--pad-x);
   mix-blend-mode: normal;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav.scrolled::before {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .nav-logo {
@@ -127,6 +142,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-links a:not(.nav-cta):not(.nav-cta-outline):hover::after { width: 100%; }
 
 .nav-cta {
+  display: inline-block;
   background: var(--red);
   color: var(--white) !important;
   padding: 0.75rem 1.5rem;
@@ -140,6 +156,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-cta:hover { background: var(--red-deep); }
 
 .nav-cta-outline {
+  display: inline-block;
   background: transparent;
   color: var(--white) !important;
   border: 1.5px solid var(--white);
@@ -174,21 +191,53 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-toggle.open span:nth-child(2) { top: 15px; transform: rotate(-45deg); }
 
 @media (max-width: 960px) {
-  .nav { mix-blend-mode: normal; background: rgba(10,10,10,0.6); backdrop-filter: blur(8px); }
+  .nav { mix-blend-mode: normal; background: rgba(10,10,10,0.6); }
+  .nav::before { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+  /* logo y boton por encima del panel para que la barra siga legible abierta */
+  .nav-logo { position: relative; z-index: 102; }
+
   .nav-links {
     position: fixed;
     inset: 0;
     background: var(--black);
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 4rem var(--pad-x);
+    /* 'safe' evita que el contenido se recorte por arriba al desbordar */
+    justify-content: safe center;
+    align-items: stretch;
+    padding: 6rem var(--pad-x) 3rem;
     gap: 2rem;
+    /* en horizontal el contenido no cabe: sin esto queda cortado e inalcanzable */
+    overflow-y: auto;
+    overscroll-behavior: contain;
     transform: translateX(100%);
-    transition: transform 0.4s var(--ease);
+    /* cerrado no debe ser enfocable ni anunciado por lectores de pantalla */
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.4s var(--ease), visibility 0s linear 0.4s;
   }
-  .nav-links.open { transform: translateX(0); }
+
+  .nav-links.open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.4s var(--ease), visibility 0s linear 0s;
+  }
+
   .nav-links a { font-size: 1.5rem; letter-spacing: 0.05em; }
+
+  /* Los CTA son botones, no enlaces de texto: heredaban el 1.5rem de arriba y
+     'Ver catalogo completo' medía ~402px contra 335px utiles, se salia de pantalla. */
+  .nav-links .nav-cta,
+  .nav-links .nav-cta-outline {
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    padding: 1rem 1.25rem;
+  }
+
   .nav-toggle { display: block; }
 }
 
